@@ -1,0 +1,23 @@
+ja:
+  activerecord:
+    models:
+      book: 本  #g
+
+    attributes:
+      book:
+        author: 著者  #g
+        memo: 内容  #g
+        picture: イメージ  #g
+        title: 書名  #g
+  label:
+    show: 詳細
+    edit: 編集
+    destroy: 削除
+    newbook: 登録
+    back: 戻る
+
+  edit_book:
+    title: 本の編集
+
+  deletion:
+    sentence: 削除していいですか？
