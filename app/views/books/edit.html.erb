@@ -4,9 +4,3 @@
 
 <%= link_to t("label.show"), @book %> |
 <%= link_to t("label.back"), books_path %>
-<br>
-<% if I18n.locale.to_s == "en" %>
-  <%= link_to('日本語', :locale => 'ja') %>
-<% else %>
-  <%= link_to('English', :locale => 'en') %>
-<% end %>

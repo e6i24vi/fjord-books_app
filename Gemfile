@@ -38,11 +38,11 @@ end
 group :development do
   gem 'listen', '~> 3.3'
   gem 'rack-mini-profiler', '~> 2.0'
-  gem 'rb-readline'
   gem 'rubocop-fjord', require: false
   gem 'rubocop-rails', require: false
   gem 'spring'
   gem 'web-console', '>= 4.1.0'
+  gem 'i18n_generators'
 end
 
 group :test do
@@ -57,5 +57,3 @@ end
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 gem 'carrierwave'
-
-gem 'i18n_generators'
