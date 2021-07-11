@@ -1,5 +1,11 @@
-<h1>New Book</h1>
+<h1><%= t("label.newbook") %></h1>
 
 <%= render 'form', book: @book %>
 
-<%= link_to 'Back', books_path %>
+<%= link_to t("label.back"), books_path %>
+<br>
+<% if I18n.locale.to_s == "en" %>
+ <%= link_to('日本語', :locale => 'ja') %>
+<% else %>
+ <%= link_to('English', :locale => 'en') %>
+<% end %>

@@ -1,0 +1,24 @@
+en:
+  activerecord:
+    models:
+      book: Book  #g
+
+    attributes:
+      book:
+        author: Author  #g
+        memo: Memo  #g
+        picture: Picture  #g
+        title: Title  #g
+  label:
+    show: show
+    edit: edit
+    destroy: destroy
+    newbook: 'new book'
+    back: back
+  edit_book:
+    title: Editing Book
+
+  deletion:
+    sentence: Are you sure?
+
+
