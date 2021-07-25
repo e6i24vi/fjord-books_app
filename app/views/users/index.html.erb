@@ -1,0 +1,36 @@
+<h1>Users#index</h1>
+<p>Find me in app/views/users/index.html.erb</p>
+<p id = "notice"><%= notice %></p>
+<%= render 'layouts/header' %>
+
+<h1><%= User.model_name.human %></h1>
+<table>
+  <thead>
+  <tr>
+    <th><%= User.human_attribute_name(:email) %></th>
+    <th><%= User.human_attribute_name(:postcode) %></th>
+    <th><%= User.human_attribute_name(:prefecture_code) %></th>
+    <th><%= User.human_attribute_name(:address_city) %></th>
+    <th><%= User.human_attribute_name(:address_street) %></th>
+    <th><%= User.human_attribute_name(:address_building) %></th>
+    <th><%= User.human_attribute_name(:introduction) %></th>
+    <th colspan="1"></th>
+  </tr>
+  </thead>
+  <tbody>
+   <% @users.each do |user| %>
+    <tr>
+      <td><%= user.email %></td>
+      <td><%= user.postcode %></td>
+      <td><%= user.prefecture_code %></td>
+      <td><%= user.address_city %></td>
+      <td><%= user.address_street %></td>
+      <td><%= user.address_building %></td>
+      <td><%= user.introduction %></td>
+      <td><%= link_to "詳細", user %></td>
+    </tr>
+   <% end %>
+  </tbody>
+</table>
+
+<%= link_to  "back",:back %>

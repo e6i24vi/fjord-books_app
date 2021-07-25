@@ -59,3 +59,8 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 gem 'carrierwave'
 gem 'kaminari'
+
+#Devise
+gem 'devise'
+gem 'jp_prefecture'
+gem 'jquery-rails'
