@@ -32,14 +32,19 @@ ActiveRecord::Schema.define(version: 2021_07_18_055617) do
     t.datetime "last_sign_in_at"
     t.string "current_sign_in_ip"
     t.string "last_sign_in_ip"
+    t.string "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string "unconfirmed_email"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "postcode"
-    t.integer "prefecture_code"
+    t.string "prefecture_code"
     t.string "address_city"
     t.string "address_street"
     t.string "address_building"
     t.text "introduction"
+    t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
