@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   #  :lockable, :timeoutable, :confirmable, and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable,:trackable
+         :recoverable, :rememberable, :validatable, :trackable
 
   include JpPrefecture
   jp_prefecture :prefecture_code
@@ -15,6 +17,5 @@ class User < ApplicationRecord
     self.prefecture_code = JpPrefecture::Prefecture.find(name: prefecture_name).code
   end
 
-  validates :introduction, presence: true, length: {maximum: 160}
-
+  validates :introduction, presence: true, length: { maximum: 160 }
 end

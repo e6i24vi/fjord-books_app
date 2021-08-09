@@ -6,7 +6,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # GET /resource/sign_up
   # def new
-  #   super
+  #  super
   # end
 
   # POST /resource
@@ -21,7 +21,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # PUT /resource
   # def update
-  #   super
+  # super
   # end
 
   # DELETE /resource
@@ -42,26 +42,20 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # If you have extra params to permit, append them to the sanitizer.
   def configure_sign_up_params
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:email,:postcode,:prefecture_code,:address_city,:address_street,:address_building,:introduction])
+    devise_parameter_sanitizer.permit(:sign_up, keys: %i[email postcode prefecture_code address_city address_street address_building introduction])
   end
 
   # If you have extra params to permit, append them to the sanitizer.
   def configure_account_update_params
-    devise_parameter_sanitizer.permit(:account_update, keys: [:email,:postcode,:prefecture_code,:address_city,:address_street,:address_building,:introduction])
+    devise_parameter_sanitizer.permit(:account_update,
+                                      keys: %i[email postcode prefecture_code address_city address_street address_building introduction])
   end
 
-    # The path used after sign up.
-  def after_sign_up_path_for(resource)
-    super(resource)
-  end
+  # The path used after sign up.
 
   # The path used after sign up for inactive accounts.
-  def after_inactive_sign_up_path_for(resource)
-    super(resource)
-  end
 
-  def after_update_path_for ( resource )
-    user_profile_path( current_user )
+  def after_update_path_for(_resource)
+    user_profile_path(current_user)
   end
-
 end
