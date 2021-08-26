@@ -38,6 +38,7 @@ end
 group :development do
   gem 'faker'
   gem 'i18n_generators'
+  gem 'letter_opener_web'
   gem 'listen', '~> 3.3'
   gem 'rack-mini-profiler', '~> 2.0'
   gem 'rubocop-fjord', require: false
@@ -59,3 +60,10 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 gem 'carrierwave'
 gem 'kaminari'
+
+# Devise
+gem 'devise'
+gem 'devise-i18n'
+
+gem 'jp_prefecture'
+gem 'jquery-rails'

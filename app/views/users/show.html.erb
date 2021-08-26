@@ -1,0 +1,32 @@
+<h1>ユーザー詳細</h1>
+<%= render 'layouts/header' %>
+<div>
+  <%= User.human_attribute_name(:email) %><br>
+  <%= @user.email %>
+</div>
+<div>
+  <%= User.human_attribute_name(:postcode) %><br>
+  <%= @user.postcode %>
+</div>
+<div>
+  <%= User.human_attribute_name(:prefecture_code) %><br>
+  <%= @user.prefecture_code %>
+</div>
+<div>
+  <%= User.human_attribute_name(:address_city) %><br>
+  <%= @user.address_city %>
+</div>
+<div>
+  <%= User.human_attribute_name(:address_street) %><br>
+  <%= @user.address_street %>
+</div>
+<div>
+  <%= User.human_attribute_name(:address_building) %><br>
+  <%= @user.address_building %>
+</div>
+<div>
+  <%= User.human_attribute_name(:introduction) %><br>
+  <%= @user.introduction %>
+</div>
+
+<%= link_to t('views.common.back'),:back %>
