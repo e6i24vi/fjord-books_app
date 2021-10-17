@@ -343,12 +343,11 @@ DEPENDENCIES
   dotenv-rails
   faker
   i18n_generators
-  image_processing
+  image_processing (~> 1.2)
   jbuilder (~> 2.7)
   kaminari
   letter_opener_web
   listen (~> 3.3)
-  mini_magick
   omniauth
   omniauth-github
   omniauth-rails_csrf_protection
