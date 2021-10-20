@@ -9,7 +9,7 @@ class User < ApplicationRecord
 
   has_one_attached :avatar
 
-  validate :image_content_type, if: :was_attached?
+  validate :image_content_type, if: -> { avatar.attached? }
 
   def self.from_omniauth(auth)
     find_or_create_by(provider: auth.provider, uid: auth.uid) do |user|
@@ -22,11 +22,7 @@ class User < ApplicationRecord
   private
 
   def image_content_type
-    extension = ['image/png', 'image/jpg', 'image/gif']
-    errors.add(:avatar, 'の拡張子が間違っています') unless avatar.content_type.in?(extension)
-  end
-
-  def was_attached?
-    avatar.attached?
+    extensions = ['image/png', 'image/jpg', 'image/gif']
+    errors.add(:avatar, 'の拡張子が間違っています') unless avatar.content_type.in?(extensions)
   end
 end
