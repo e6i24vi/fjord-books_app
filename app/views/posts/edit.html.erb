@@ -1,0 +1,17 @@
+<%= t("posts.edit") %>
+<%= form_with model: @post do |f| %>
+ <div>
+   <%= f.label Post.human_attribute_name(:title) %>
+   <%= f.text_field :title,autofocus: true, :placeholder =>"%{@post.title}" %>
+ </div>
+  <div>
+    <%= f.label Post.human_attribute_name(:body) %>
+    <%= f.text_area :body,:placeholder =>"#{@post.body}" %>
+  </div>
+  <div><%= f.submit t("posts.content_change") %></div>
+<% end %>
+<br>
+<%= link_to t("views.common.destroy"),@post ,method: :delete, data: { confirm: t('views.common.delete_confirm') }  %>
+<br>
+<%= link_to t("views.common.back"), posts_path %>
+

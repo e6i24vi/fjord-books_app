@@ -1,0 +1,37 @@
+<h1><%= t("posts.new") %></h1>
+<span>現在ログイン中のユーザー:<%= current_user.name %></span>
+<%= form_with model: @post do |f| %>
+  <div>
+    <%= f.label  Post.human_attribute_name(:title)  %>
+    <%= f.text_field :title, autofocus: true %>
+  </div>
+  <div>
+    <%= f.label  Post.human_attribute_name(:body)  %>
+    <%= f.text_area :body %>
+  </div>
+  <div>
+    <%= f.submit t("posts.post")%>
+  </div>
+<% end %>
+
+<table>
+  <thead>
+  <tr>
+    <th><% t("posts.post") %></th>
+    <th><% Post.human_attribute_name(:title) %></th>
+    <th><% Post.human_attribute_name(:body) %></th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @posts.each do |post| %>
+    <tr>
+      <td><%= post.user.name %></td>
+      <td><%= post.title %></td>
+      <td><%= post.body %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+<%= link_to t("views.common.back"),posts_path %>
+
+
