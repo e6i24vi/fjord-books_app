@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class PostsController < ApplicationController
   before_action :authenticate_user!
 
@@ -28,12 +30,10 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     if @post.user != current_user
       redirect_to posts_path
+    elsif @post.update(post_params)
+      redirect_to posts_path
     else
-      if @post.update(post_params)
-        redirect_to posts_path
-      else
-        render :edit
-      end
+      render :edit
     end
   end
 
@@ -43,13 +43,8 @@ class PostsController < ApplicationController
 
   def destroy
     @post = Post.find(params[:id])
-    if @post.user !=current_user
-      redirect_to posts_path
-    else
-      @post.destroy
-      redirect_to posts_path
-    end
-
+    @post.destroy if @post.user == current_user
+    redirect_to posts_path
   end
 
   private

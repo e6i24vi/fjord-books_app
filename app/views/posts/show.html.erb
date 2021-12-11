@@ -17,3 +17,5 @@
   <%= link_to t("views.common.destroy"),@post ,method: :delete, data: { confirm: t('views.common.delete_confirm') }  %>
   <% end %>
 <%= link_to t("views.common.back"),posts_path %>
+
+<%= render partial: 'comments/comments',locals: {commentable: @post} %>

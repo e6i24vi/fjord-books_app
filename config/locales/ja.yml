@@ -201,7 +201,7 @@ ja:
   time:
     am: 午前
     formats:
-      default: "%Y年%m月%d日(%a) %H時%M分%S秒 %z"
+      default: "%Y年%m月%d日(%a) %H時%M分%S秒"
       long: "%Y/%m/%d %H:%M"
       short: "%m/%d %H:%M"
     pm: 午後
@@ -263,5 +263,17 @@ ja:
     show: "投稿詳細"
     edit: "投稿編集"
     content_change: "内容変更"
+  comments:
+    create:
+      notice: "コメント作成が成功しました"
+    update:
+      notice: "更新が成功しました"
+    destroy:
+      notice: "削除が成功しました"
+    title: "コメント"
+    edits:
+      title: "コメント編集"
+
+
 
 
