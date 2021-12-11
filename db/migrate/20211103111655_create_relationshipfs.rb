@@ -6,8 +6,6 @@ class CreateRelationshipfs < ActiveRecord::Migration[6.1]
 
       t.timestamps
     end
-    add_index :relationshipfs, :follower_id
-    add_index :relationshipfs, :follower_id
     add_index :relationshipfs, %i[follower_id following_id],unique: true
 
   end
