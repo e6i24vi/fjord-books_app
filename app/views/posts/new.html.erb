@@ -1,12 +1,12 @@
 <h1><%= t("posts.new") %></h1>
-<span>現在ログイン中のユーザー:<%= current_user.name %></span>
+<span><%= t("views.common.current_login_user") %><%= current_user.name %></span>
 <%= form_with model: @post do |f| %>
   <div>
-    <%= f.label  Post.human_attribute_name(:title)  %>
+    <%= f.label Post.human_attribute_name(:title)  %>
     <%= f.text_field :title, autofocus: true %>
   </div>
   <div>
-    <%= f.label  Post.human_attribute_name(:body)  %>
+    <%= f.label Post.human_attribute_name(:body)  %>
     <%= f.text_area :body %>
   </div>
   <div>

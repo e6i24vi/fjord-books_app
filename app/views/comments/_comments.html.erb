@@ -1,6 +1,4 @@
-
-
-<h2>コメント一覧</h2>
+<h2><%= t("comments.index") %></h2>
 
 <% if commentable.comments.exists? %>
 
@@ -22,31 +20,25 @@
   <tbody>
   <% commentable.comments.each do |comment| %>
   <tr>
-    <% if User.find(comment.user_id).nil? %>
-      <td><%= User.find(comment.user_id).email %></td>
-    <% else %>
-      <td><%= User.find(comment.user_id).name %></td>
-    <% end %>
-
+      <td><% user = User.find(comment.user_id) %>
+      <%= user.name.presence || user.email %></td>
     <td><%= comment.content %></td>
     <td>
       <%= l comment.created_at %>
     </td>
     <% if current_user.id == comment.user_id %>
-    <td><%= link_to t('views.common.edit') ,edit_polymorphic_path([commentable,comment]) %></td>
-    <td><%= link_to t('views.common.destroy') ,[commentable,comment] ,method: :delete, data: { confirm: t('views.common.delete_confirm') }  %></td>
+    <td><%= link_to t('views.common.edit') ,edit_polymorphic_path([commentable, comment]) %></td>
+    <td><%= link_to t('views.common.destroy') ,[commentable, comment], method: :delete, data: { confirm: t('views.common.delete_confirm') }  %></td>
     <% end %>
     <% end %>
     </tr>
   </tbody>
 </table>
 <% else %>
-  <p><%= "コメントは存在しておりません" %></p>
+  <p><%= t("comments.noexists") %></p>
 <% end %>
 
-
-
-<%= form_with model: [commentable,Comment.new] do |form| %>
-  <%= form.text_area :content,required: true %><br>
+<%= form_with model: [commentable, Comment.new] do |form| %>
+  <%= form.text_area :content, required: true %><br>
   <%= form.submit %>
 <% end %>

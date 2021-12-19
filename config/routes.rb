@@ -1,9 +1,8 @@
 Rails.application.routes.draw do
-  resources :comments
   mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks', registrations: "users/registrations" }
   root to: 'books#index'
-  resources :books
+
   resources :users, only: %i[index show] do
     resource :relationships, only: %i[create destroy]
     scope module: :users do
@@ -11,15 +10,17 @@ Rails.application.routes.draw do
       resources :followers, only: [:index]
     end
   end
+
   resources :posts
 
   resources :posts do
-    resources :comments, module: :posts
+    resources :comments, only: %i[create edit update destroy], module: :posts
   end
+
+  resources :books
 
   resources :books do
-    resources :comments, module: :books
+    resources :comments, only: %i[create edit update destroy], module: :books
   end
-
 
 end

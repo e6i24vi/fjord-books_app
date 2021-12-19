@@ -8,10 +8,9 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(post_params)
-    @post.user_id = current_user.id
+    @post = current_user.posts.new(post_params)
     if @post.save
-      redirect_to new_post_path
+      redirect_to posts_path, notice: t('posts.create.notice')
     else
       render :new
     end
@@ -27,11 +26,9 @@ class PostsController < ApplicationController
   end
 
   def update
-    @post = Post.find(params[:id])
-    if @post.user != current_user
-      redirect_to posts_path
-    elsif @post.update(post_params)
-      redirect_to posts_path
+    @post = current_user.posts.find(params[:id])
+    if @post.update(post_params)
+      redirect_to posts_path, notice: t('posts.update.notice')
     else
       render :edit
     end
@@ -42,9 +39,9 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    @post = Post.find(params[:id])
-    @post.destroy if @post.user == current_user
-    redirect_to posts_path
+    @post = current_user.posts.find(params[:id])
+    @post.destroy!
+    redirect_to posts_path, notice: t('posts.destroy.notice')
   end
 
   private

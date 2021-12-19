@@ -13,9 +13,9 @@
   <% @posts.each do |post|  %>
   <tr>
     <td><%= post.title %></td>
-    <td><%= link_to t('views.common.show'),post %></td>
-    <% if current_user.id ==post.user.id %>
-    <td><%= link_to t('views.common.edit') ,edit_post_path(post) %></td>
+    <td><%= link_to t('views.common.show'), post %></td>
+    <% if current_user.id == post.user.id %>
+    <td><%= link_to t('views.common.edit'), edit_post_path(post) %></td>
     <td><%= link_to t('views.common.destroy') ,post ,method: :delete, data: { confirm: t('views.common.delete_confirm') }  %></td>
     <% end %>
   </tr>

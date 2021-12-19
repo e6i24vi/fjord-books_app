@@ -218,6 +218,7 @@ ja:
       title_show: "%{name}の詳細"
       sign_out: ログアウト
       minimum_length: "%{length}文字以上"
+      current_login_user: "現在のログイン中のユーザー:"
     pagination:
       first: '最初'
       last: '最後'
@@ -263,17 +264,21 @@ ja:
     show: "投稿詳細"
     edit: "投稿編集"
     content_change: "内容変更"
+    create:
+      notice: "投稿の作成が成功しました"
+    update:
+      notice: "投稿の更新が成功しました"
+    destroy:
+        notice: "投稿の削除が成功しました"
   comments:
     create:
-      notice: "コメント作成が成功しました"
+      notice: "コメントの作成が成功しました"
     update:
-      notice: "更新が成功しました"
+      notice: "コメントの更新が成功しました"
     destroy:
-      notice: "削除が成功しました"
+      notice: "コメントの削除が成功しました"
     title: "コメント"
     edits:
       title: "コメント編集"
-
-
-
-
+    index: "コメント一覧"
+    noexists: "コメントは存在しておりません"
