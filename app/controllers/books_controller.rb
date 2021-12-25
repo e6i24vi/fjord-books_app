@@ -12,7 +12,7 @@ class BooksController < ApplicationController
   # GET /books/1
   # GET /books/1.json
   def show
-    @book = Book.includes( comments: :user ).find(params[:id])
+    @book = Book.includes(comments: :user).find(params[:id])
   end
 
   # GET /books/new

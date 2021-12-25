@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class CommentsController < ApplicationController
-
   # GET /comments/1/edit
   def edit
     @comment = current_user.comments.find(params[:id])

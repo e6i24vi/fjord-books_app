@@ -45,5 +45,4 @@ class User < ApplicationRecord
   def nameoremail
     name.presence || email
   end
-
 end
