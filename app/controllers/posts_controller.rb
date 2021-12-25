@@ -18,11 +18,11 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
-    @posts = Post.all
+    @posts = Post.all.page(params[:page])
   end
 
   def show
-    @post = Post.find(params[:id])
+    @post = Post.includes( comments: :user ).find(params[:id])
   end
 
   def update
@@ -35,7 +35,7 @@ class PostsController < ApplicationController
   end
 
   def edit
-    @post = Post.find(params[:id])
+    @post = current_user.posts.find(params[:id])
   end
 
   def destroy

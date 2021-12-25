@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class CommentsController < ApplicationController
-  before_action :set_comment, only: %i[edit update destroy]
 
   # GET /comments/1/edit
   def edit
@@ -27,20 +26,12 @@ class CommentsController < ApplicationController
 
   # DELETE /comments/1 or /comments/1.json
   def destroy
-    if @comment.user_id != current_user.id
-      redirect_to [@commentable]
-    else
-      @comment.destroy
-      redirect_to [@commentable], notice: t('comments.destroy.notice')
-    end
+    @comment = current_user.comments.find(params[:id])
+    @comment.destroy
+    redirect_to [@commentable], notice: t('comments.destroy.notice')
   end
 
   private
-
-  # Use callbacks to share common setup or constraints between actions.
-  def set_comment
-    @comment = Comment.find(params[:id])
-  end
 
   def set_comments
     raise NotImplementedError
