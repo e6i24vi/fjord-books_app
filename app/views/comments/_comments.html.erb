@@ -1,0 +1,43 @@
+<h2><%= t("comments.index") %></h2>
+
+<% if commentable.comments.exists? %>
+
+<table>
+  <thead>
+  <tr>
+    <th>
+      <%= User.human_attribute_name(:name)  %>
+    </th>
+    <th>
+      <%= Comment.human_attribute_name(:content) %>
+    </th>
+    <th>
+      <%= Comment.human_attribute_name(:create_at) %>
+    </th>
+    <th colspan="2"></th>
+  </tr>
+  </thead>
+  <tbody>
+  <% commentable.comments.each do |comment| %>
+  <tr>
+    <td><%= comment.user.name_or_email %></td>
+    <td><%= comment.content %></td>
+    <td>
+      <%= l comment.created_at %>
+    </td>
+    <% if current_user.id == comment.user_id %>
+    <td><%= link_to t('views.common.edit') ,edit_polymorphic_path([commentable, comment]) %></td>
+    <td><%= link_to t('views.common.destroy') ,[commentable, comment], method: :delete, data: { confirm: t('views.common.delete_confirm') }  %></td>
+    <% end %>
+    <% end %>
+    </tr>
+  </tbody>
+</table>
+<% else %>
+  <p><%= t("comments.noexists") %></p>
+<% end %>
+
+<%= form_with model: [commentable, Comment.new] do |form| %>
+  <%= form.text_area :content, required: true %><br>
+  <%= form.submit %>
+<% end %>

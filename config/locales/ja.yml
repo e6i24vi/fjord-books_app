@@ -201,7 +201,7 @@ ja:
   time:
     am: 午前
     formats:
-      default: "%Y年%m月%d日(%a) %H時%M分%S秒 %z"
+      default: "%Y年%m月%d日(%a) %H時%M分%S秒"
       long: "%Y/%m/%d %H:%M"
       short: "%m/%d %H:%M"
     pm: 午後
@@ -218,6 +218,7 @@ ja:
       title_show: "%{name}の詳細"
       sign_out: ログアウト
       minimum_length: "%{length}文字以上"
+      current_login_user: "現在のログイン中のユーザー:"
     pagination:
       first: '最初'
       last: '最後'
@@ -255,3 +256,29 @@ ja:
     registrations:
       edit:
         title: "アカウント編集"
+  posts:
+    index: "投稿一覧"
+    post: "投稿する"
+    name: "投稿者"
+    new: "新規投稿"
+    show: "投稿詳細"
+    edit: "投稿編集"
+    content_change: "内容変更"
+    create:
+      notice: "投稿の作成が成功しました"
+    update:
+      notice: "投稿の更新が成功しました"
+    destroy:
+        notice: "投稿の削除が成功しました"
+  comments:
+    create:
+      notice: "コメントの作成が成功しました"
+    update:
+      notice: "コメントの更新が成功しました"
+    destroy:
+      notice: "コメントの削除が成功しました"
+    title: "コメント"
+    edits:
+      title: "コメント編集"
+    index: "コメント一覧"
+    noexists: "コメントは存在しておりません"
