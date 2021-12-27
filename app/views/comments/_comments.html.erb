@@ -20,7 +20,7 @@
   <tbody>
   <% commentable.comments.each do |comment| %>
   <tr>
-    <td><%= comment.user.nameoremail %></td>
+    <td><%= comment.user.name_or_email %></td>
     <td><%= comment.content %></td>
     <td>
       <%= l comment.created_at %>

@@ -42,7 +42,7 @@ class User < ApplicationRecord
     relationship&.destroy!
   end
 
-  def nameoremail
+  def name_or_email
     name.presence || email
   end
 end
