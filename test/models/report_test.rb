@@ -13,9 +13,10 @@ class ReportTest < ActiveSupport::TestCase
   end
 
   test 'create_on' do
-    require 'date'
-    me = User.create(email: 'me@example.com', password: 'password')
-    report_me = Report.create(user_id: me.id, title: '明日の天気', content: '晴れ')
-    assert_equal report_me.created_on, Time.zone.today
+    travel_to Time.zone.local(2020, 1, 8, 19, 44, 44) do
+      me = User.create(email: 'me@example.com', password: 'password')
+      report_me = Report.create(user: me, title: '明日の天気', content: '晴れ')
+      assert_equal report_me.created_on, Time.current.to_date
+    end
   end
 end

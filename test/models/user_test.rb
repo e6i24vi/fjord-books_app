@@ -13,17 +13,17 @@ class UserTest < ActiveSupport::TestCase
   test '#follow' do
     me = User.create(email: 'me@example.com', password: 'password')
     she = User.create(email: 'she@example.com', password: 'password')
-    assert_not me.active_relationships.where(following_id: she.id).exists?
+    assert_not me.active_relationships.where(following: she).exists?
     me.follow(she)
-    assert me.active_relationships.where(following_id: she.id).exists?
+    assert me.active_relationships.where(following: she).exists?
   end
   test '#unfollow' do
     me = User.create(email: 'me@example.com', password: 'password')
     she = User.create(email: 'she@example.com', password: 'password')
     me.follow(she)
-    assert me.active_relationships.where(following_id: she.id).exists?
+    assert me.active_relationships.where(following: she).exists?
     me.unfollow(she)
-    assert_not me.active_relationships.where(following_id: she.id).exists?
+    assert_not me.active_relationships.where(following: she).exists?
   end
 
   test '#following?' do
