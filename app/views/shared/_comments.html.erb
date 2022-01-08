@@ -16,7 +16,7 @@
   <% end %>
   <%= form_with model: [commentable, commentable.comments.new], local: true do |f| %>
     <% # NOTE: ブラウザ側で必須チェックを行い、サーバーサイドの検証エラーを起きにくくする %>
-    <%= f.text_field :content, required: true %>
+    <%= f.text_field :content, required: true, id: 'session_text' %>
     <%= f.submit t('.create') %>
   <% end %>
 </div>

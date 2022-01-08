@@ -1,11 +1,8 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  user: one
-  title: MyString
-  content: MyText
+whether:
+  title: 明日の天気
+  content: くもり
+  user: alice
 
-two:
-  user: two
-  title: MyString
-  content: MyText
+
