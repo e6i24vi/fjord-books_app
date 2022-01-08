@@ -1,12 +1,8 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-#
+
 whether:
   title: 明日の天気
   content: くもり
   user: alice
 
-#
-#two:
-#  user: two
-#  title: MyString
-#  content: MyText
+
